@@ -379,13 +379,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.34206322, y: -0, z: -0, w: 0.93967694}
-  m_LocalPosition: {x: 0, y: 6.71, z: -7.11}
+  m_LocalRotation: {x: 0.38736957, y: -5.8138737e-11, z: -2.8315599e-12, w: 0.9219245}
+  m_LocalPosition: {x: 0, y: 8.06, z: -7.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 40.005, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45.582, y: 0, z: 0}
 --- !u!1 &1668393531
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,11 +397,11 @@ GameObject:
   - component: {fileID: 1668393535}
   - component: {fileID: 1668393534}
   - component: {fileID: 1668393533}
+  - component: {fileID: 1668393536}
   - component: {fileID: 1668393538}
   - component: {fileID: 1668393539}
   - component: {fileID: 1668393532}
   - component: {fileID: 1668393537}
-  - component: {fileID: 1668393536}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -490,12 +490,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1668393531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 572173bcc57ba3a449820f7affff55d3, type: 3}
+  m_Script: {fileID: 11500000, guid: e259371658a40f9419397d4aae380087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  movement: {x: 0, y: 0, z: 0}
-  moveSpeed: 3
+  cubeSize: 1
+  smallSize: {x: 0.5, y: 0.5, z: 0.5}
+  mediumSize: {x: 1, y: 1, z: 1}
+  bigSize: {x: 2, y: 2, z: 2}
+  inputDelay: 0.1
 --- !u!54 &1668393537
 Rigidbody:
   m_ObjectHideFlags: 0
