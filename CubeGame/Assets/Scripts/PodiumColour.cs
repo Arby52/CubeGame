@@ -13,6 +13,7 @@ public class PodiumColour : MonoBehaviour
 {  
 
     public CubePower podiumPower;
+    [HideInInspector]
     public PowerStates powerState;
         
     void Update()

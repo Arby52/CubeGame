@@ -18,6 +18,7 @@ public class CharacterMechanics : MonoBehaviour
     PowerStates powerState;
 
     public SizeStates cubeSize = SizeStates.medium;
+
     [SerializeField]
     Vector3 smallSize;
     [SerializeField]
