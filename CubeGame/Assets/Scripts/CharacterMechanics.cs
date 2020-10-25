@@ -12,8 +12,7 @@ public class CharacterMechanics : MonoBehaviour
         big
     };
 
-    Camera cam;
-    Vector3 tempCamPos;
+    CharacterMovement charMovement;
 
     [SerializeField]
     PowerStates powerState;
@@ -26,6 +25,13 @@ public class CharacterMechanics : MonoBehaviour
     Vector3 mediumSize;
     [SerializeField]
     Vector3 bigSize;
+
+    [SerializeField]
+    float smallJumpHeight;
+    [SerializeField]
+    float mediumJumpHeight;
+    [SerializeField]
+    float bigJumpHeight;
 
     float lastTime = 0;
     [SerializeField]
@@ -41,7 +47,8 @@ public class CharacterMechanics : MonoBehaviour
 
     void Start()
     {
-        cam = Camera.main;
+        charMovement = GetComponent<CharacterMovement>();
+        charMovement.jumpHeight = mediumJumpHeight;
     }
 
     void Update()
@@ -51,23 +58,28 @@ public class CharacterMechanics : MonoBehaviour
 
     private void FixedUpdate()
     {
+        /*
         switch (cubeSize)
         {
             case SizeStates.small:
                 gameObject.transform.localScale = smallSize;
+                charMovement.jumpHeight = smallJumpHeight;
                 break;
 
             case SizeStates.medium:
                 gameObject.transform.localScale = mediumSize;
+                charMovement.jumpHeight = mediumJumpHeight;
                 break;
 
             case SizeStates.big:
                 gameObject.transform.localScale = bigSize;
+                charMovement.jumpHeight = bigJumpHeight;
                 break;
 
             default:
                 break;
         }
+        */
     }
 
     private void OnTriggerEnter(Collider other)
@@ -92,11 +104,15 @@ public class CharacterMechanics : MonoBehaviour
                 {
                     case SizeStates.small:
                         cubeSize = SizeStates.medium;
+                        gameObject.transform.localScale = mediumSize;
+                        charMovement.jumpHeight = mediumJumpHeight;
                         AudioManager.Instance.Play(getBiggerAudio);
                         break;
 
                     case SizeStates.medium:
                         cubeSize = SizeStates.big;
+                        gameObject.transform.localScale = bigSize;
+                        charMovement.jumpHeight = bigJumpHeight;
                         AudioManager.Instance.Play(getBiggerAudio);
                         break;
 
@@ -116,11 +132,15 @@ public class CharacterMechanics : MonoBehaviour
                 {
                     case SizeStates.big:
                         cubeSize = SizeStates.medium;
+                        gameObject.transform.localScale = mediumSize;
+                        charMovement.jumpHeight = mediumJumpHeight;
                         AudioManager.Instance.Play(getSmallerAudio);
                         break;
 
                     case SizeStates.medium:
                         cubeSize = SizeStates.small;
+                        gameObject.transform.localScale = smallSize;
+                        charMovement.jumpHeight = smallJumpHeight;
                         AudioManager.Instance.Play(getSmallerAudio);
                         break;
 

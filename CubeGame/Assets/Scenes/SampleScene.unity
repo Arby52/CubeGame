@@ -680,6 +680,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.296
       objectReference: {fileID: 0}
+    - target: {fileID: 2207713431429568608, guid: cad2c6848a0265c4f9f039a153e022fe,
+        type: 3}
+      propertyPath: cameraSensitivity
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2207713431429568610, guid: cad2c6848a0265c4f9f039a153e022fe,
         type: 3}
       propertyPath: getBiggerAudio
@@ -695,6 +700,46 @@ PrefabInstance:
       propertyPath: colourChangeAudio
       value: 
       objectReference: {fileID: 8300000, guid: fbfc1c7c6950f91449e00ca477eb2d1f, type: 3}
+    - target: {fileID: 2207713431429568610, guid: cad2c6848a0265c4f9f039a153e022fe,
+        type: 3}
+      propertyPath: mediumJumpHeight
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207713431429568610, guid: cad2c6848a0265c4f9f039a153e022fe,
+        type: 3}
+      propertyPath: smallJumpHeight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207713431429568610, guid: cad2c6848a0265c4f9f039a153e022fe,
+        type: 3}
+      propertyPath: bigJumpHeight
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207713431429568610, guid: cad2c6848a0265c4f9f039a153e022fe,
+        type: 3}
+      propertyPath: bigSize.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207713431429568610, guid: cad2c6848a0265c4f9f039a153e022fe,
+        type: 3}
+      propertyPath: bigSize.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207713431429568610, guid: cad2c6848a0265c4f9f039a153e022fe,
+        type: 3}
+      propertyPath: bigSize.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207713431429568611, guid: cad2c6848a0265c4f9f039a153e022fe,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207713431429568611, guid: cad2c6848a0265c4f9f039a153e022fe,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cad2c6848a0265c4f9f039a153e022fe, type: 3}
 --- !u!1001 &2455427602767289562
