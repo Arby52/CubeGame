@@ -58,9 +58,9 @@ public class CharacterMovement : MonoBehaviour
         
         //transform.Rotate(0, xRotation, 0);
 
-        Quaternion rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
-        cam.transform.RotateAround(transform.position, -Vector3.up, xRotation);
-        //cam.transform.position = transform.position - camOffset;
+        //Quaternion rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+        //cam.transform.RotateAround(transform.position, -Vector3.up, xRotation);
+        cam.transform.position = transform.position - camOffset;
         //cam.transform.LookAt(transform);
     }
 }
