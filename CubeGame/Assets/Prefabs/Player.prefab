@@ -49,9 +49,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28a7153794c29343b40ac1062cd15d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {x: 0, y: 0, z: 0}
   speed: 2
-  jumpHeight: 3
+  jumpHeight: 1
   gravity: 10
+  cameraSensitivity: 0
 --- !u!114 &2207713431429568610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +71,13 @@ MonoBehaviour:
   smallSize: {x: 0.5, y: 0.5, z: 0.5}
   mediumSize: {x: 1, y: 1, z: 1}
   bigSize: {x: 2, y: 2, z: 2}
+  smallJumpHeight: 1
+  mediumJumpHeight: 1.5
+  bigJumpHeight: 2
   inputDelay: 0.1
+  getBiggerAudio: {fileID: 0}
+  getSmallerAudio: {fileID: 0}
+  colourChangeAudio: {fileID: 0}
 --- !u!33 &2207713431429568540
 MeshFilter:
   m_ObjectHideFlags: 0
