@@ -13,18 +13,12 @@ public class CharacterMovement : MonoBehaviour
     public float jumpHeight;
     public float gravity;
 
-    Camera cam;
-    Vector3 camOffset;
-    public float cameraSensitivity;
-
     // Start is called before the first frame update
     void Start()
     {
-        cam = Camera.main;
         controller = GetComponent<CharacterController>();
         movement = Vector3.zero;
-        isGrounded = false;
-        camOffset = transform.position - cam.transform.position;
+        isGrounded = false;        
     }
 
     // Update is called once per frame
@@ -35,7 +29,10 @@ public class CharacterMovement : MonoBehaviour
         float xMovement = Input.GetAxis("Horizontal") * speed;
         float zMovement = Input.GetAxis("Vertical") * speed;
 
-        Vector3 direction = new Vector3(xMovement, 0f, zMovement).normalized;
+        Vector3 directionSide = transform.right * xMovement;
+        Vector3 directionForward = transform.forward * zMovement;        
+
+        Vector3 direction = (directionForward + directionSide).normalized;
 
         movement.x = direction.x;
         movement.z = direction.z;
@@ -50,19 +47,7 @@ public class CharacterMovement : MonoBehaviour
         {
             movement.y -= gravity * Time.deltaTime;
         }
-
         
         controller.Move(movement *Time.fixedDeltaTime);
-
-        //Camera Stuff
-        float xRotation = Input.GetAxis("Mouse X") * cameraSensitivity;
-        float yRotation = Input.GetAxis("Mouse Y") * cameraSensitivity;
-        
-        //transform.Rotate(0, xRotation, 0);
-
-        //Quaternion rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
-        //cam.transform.RotateAround(transform.position, -Vector3.up, xRotation);
-        cam.transform.position = transform.position - camOffset;
-        //cam.transform.LookAt(transform);
     }
 }
