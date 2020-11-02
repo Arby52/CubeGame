@@ -32,11 +32,13 @@ public class CharacterMovement : MonoBehaviour
     {       
 
         //Movement Stuff
-        float xMovement = Input.GetAxis("Horizontal");
-        float zMovement = Input.GetAxis("Vertical");
+        float xMovement = Input.GetAxis("Horizontal") * speed;
+        float zMovement = Input.GetAxis("Vertical") * speed;
 
-        movement.x = xMovement * speed;
-        movement.z = zMovement * speed;
+        Vector3 direction = new Vector3(xMovement, 0f, zMovement).normalized;
+
+        movement.x = direction.x;
+        movement.z = direction.z;
 
         if (controller.isGrounded && Input.GetButton("Jump"))
         {
