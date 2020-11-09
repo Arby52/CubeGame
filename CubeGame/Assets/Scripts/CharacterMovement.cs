@@ -8,8 +8,9 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField]
     Vector3 movement;
     bool isGrounded;
+    [HideInInspector]
     public float speed;
-    //[HideInInspector]
+    [HideInInspector]
     public float jumpHeight;
     public float gravity;
 
@@ -24,18 +25,17 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {       
-
         //Movement Stuff
-        float xMovement = Input.GetAxis("Horizontal") * speed;
-        float zMovement = Input.GetAxis("Vertical") * speed;
+        float xMovement = Input.GetAxis("Horizontal");
+        float zMovement = Input.GetAxis("Vertical");
 
         Vector3 directionSide = transform.right * xMovement;
         Vector3 directionForward = transform.forward * zMovement;        
 
         Vector3 direction = (directionForward + directionSide).normalized;
 
-        movement.x = direction.x;
-        movement.z = direction.z;
+        movement.x = direction.x * speed;
+        movement.z = direction.z * speed;
 
         if (controller.isGrounded && Input.GetButton("Jump"))
         {

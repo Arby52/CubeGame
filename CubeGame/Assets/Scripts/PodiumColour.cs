@@ -5,13 +5,13 @@ using UnityEngine;
 public enum PowerStates
 {
     none,
-    speed
+    speed,
+    jumpHeight
 }
 
 [ExecuteAlways]
 public class PodiumColour : MonoBehaviour
-{  
-
+{
     public CubePower podiumPower;
     [HideInInspector]
     public PowerStates powerState;
@@ -23,5 +23,14 @@ public class PodiumColour : MonoBehaviour
             GetComponent<MeshRenderer>().material = podiumPower.powerMaterial;
             powerState = podiumPower.powerState;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {       
+        if (other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponent<CharacterMechanics>().ChangeColour(podiumPower.powerMaterial, podiumPower.powerState);
+
+        }        
     }
 }

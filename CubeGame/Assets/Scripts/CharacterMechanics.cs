@@ -13,12 +13,14 @@ public class CharacterMechanics : MonoBehaviour
     };
 
     CharacterMovement charMovement;
+    float lastTime = 0;
 
     [SerializeField]
     PowerStates powerState;
 
     public SizeStates cubeSize = SizeStates.medium;
 
+    //Sizes
     [SerializeField]
     Vector3 smallSize;
     [SerializeField]
@@ -26,16 +28,30 @@ public class CharacterMechanics : MonoBehaviour
     [SerializeField]
     Vector3 bigSize;
 
+    //Jump Heights
     [SerializeField]
+    float baseSmallJumpHeight;
+    [SerializeField]
+    float baseMediumJumpHeight;
+    [SerializeField]
+    float baseBigJumpHeight;
+
+    [SerializeField]
+    float upgradedSmallJumpHeight;
+    [SerializeField]
+    float upgradedMediumJumpHeight;
+    [SerializeField]
+    float upgradedBigJumpHeight;
+
     float smallJumpHeight;
-    [SerializeField]
     float mediumJumpHeight;
-    [SerializeField]
     float bigJumpHeight;
 
-    float lastTime = 0;
+    //Speed
     [SerializeField]
-    float inputDelay = 0.5f;
+    float baseSpeed;
+    [SerializeField]
+    float upgradedSpeed;
 
     //Sound Effects
     [SerializeField]
@@ -47,108 +63,129 @@ public class CharacterMechanics : MonoBehaviour
 
     void Start()
     {
+        smallJumpHeight = baseSmallJumpHeight;
+        mediumJumpHeight = baseMediumJumpHeight;
+        bigJumpHeight = baseBigJumpHeight;
+
         charMovement = GetComponent<CharacterMovement>();
         charMovement.jumpHeight = mediumJumpHeight;
+        charMovement.speed = baseSpeed;
+        powerState = PowerStates.none;
+
     }
 
-    void Update()
+    public void ChangeColour(Material _material, PowerStates _state)
     {
-        ChangeSizeState();
-    }
+        PowerStates prevState = powerState;
+        GetComponent<MeshRenderer>().material = _material;
+        powerState = _state;
+        AudioManager.Instance.Play(colourChangeAudio);
 
-    private void FixedUpdate()
-    {
-        /*
-        switch (cubeSize)
+        //Remove the effects of the previous upgrade
+        switch (prevState)
         {
-            case SizeStates.small:
-                gameObject.transform.localScale = smallSize;
-                charMovement.jumpHeight = smallJumpHeight;
+            case PowerStates.speed:
+                charMovement.speed = baseSpeed;
                 break;
 
-            case SizeStates.medium:
-                gameObject.transform.localScale = mediumSize;
-                charMovement.jumpHeight = mediumJumpHeight;
-                break;
-
-            case SizeStates.big:
-                gameObject.transform.localScale = bigSize;
-                charMovement.jumpHeight = bigJumpHeight;
+            case PowerStates.jumpHeight:
+                smallJumpHeight = baseSmallJumpHeight;
+                mediumJumpHeight = baseMediumJumpHeight;
+                bigJumpHeight = baseBigJumpHeight;
+                switch (cubeSize)
+                {
+                    case SizeStates.big:
+                        charMovement.jumpHeight = bigJumpHeight;
+                        break;
+                    case SizeStates.medium:
+                        charMovement.jumpHeight = mediumJumpHeight;
+                        break;
+                    case SizeStates.small:
+                        charMovement.jumpHeight = smallJumpHeight;
+                        break;
+                }                
                 break;
 
             default:
                 break;
         }
-        */
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "PowerPodium")
+        //Add the effects of the new upgrade
+        switch (_state)
         {
-            GetComponent<MeshRenderer>().material = other.GetComponent<MeshRenderer>().material;
-            powerState = other.GetComponent<PodiumColour>().powerState;
-            AudioManager.Instance.Play(colourChangeAudio);
-        }
-    }
+            case PowerStates.speed:
+                charMovement.speed = upgradedSpeed;
+                break;
 
-    void ChangeSizeState()
-    {
-        //Getting Bigger
-        if (Input.GetKey(KeyCode.E))
-        {
-            if (Time.time - lastTime > inputDelay)
-            {
-                lastTime = Time.time;
-                switch (cubeSize)
-                {
-                    case SizeStates.small:
-                        cubeSize = SizeStates.medium;
-                        gameObject.transform.localScale = mediumSize;
-                        charMovement.jumpHeight = mediumJumpHeight;
-                        AudioManager.Instance.Play(getBiggerAudio);
-                        break;
-
-                    case SizeStates.medium:
-                        cubeSize = SizeStates.big;
-                        gameObject.transform.localScale = bigSize;
-                        charMovement.jumpHeight = bigJumpHeight;
-                        AudioManager.Instance.Play(getBiggerAudio);
-                        break;
-
-                    default:
-                        break;
-                }
-            }
-        }
-
-        //Getting Smaller
-        if (Input.GetKey(KeyCode.Q))
-        {
-            if (Time.time - lastTime > inputDelay)
-            {
-                lastTime = Time.time;
+            case PowerStates.jumpHeight:
+                smallJumpHeight = upgradedSmallJumpHeight;
+                mediumJumpHeight = upgradedMediumJumpHeight;
+                bigJumpHeight = upgradedBigJumpHeight;
                 switch (cubeSize)
                 {
                     case SizeStates.big:
-                        cubeSize = SizeStates.medium;
-                        gameObject.transform.localScale = mediumSize;
-                        charMovement.jumpHeight = mediumJumpHeight;
-                        AudioManager.Instance.Play(getSmallerAudio);
+                        charMovement.jumpHeight = bigJumpHeight;
                         break;
-
                     case SizeStates.medium:
-                        cubeSize = SizeStates.small;
-                        gameObject.transform.localScale = smallSize;
-                        charMovement.jumpHeight = smallJumpHeight;
-                        AudioManager.Instance.Play(getSmallerAudio);
+                        charMovement.jumpHeight = mediumJumpHeight;
                         break;
-
-                    default:
+                    case SizeStates.small:
+                        charMovement.jumpHeight = smallJumpHeight;
                         break;
                 }
-            }
+                break;
+
+            default:
+                break;
         }
+    }
+
+    public void MediumBigFlip()
+    {       
+        switch (cubeSize)
+        {                
+            case SizeStates.big:
+                cubeSize = SizeStates.medium;
+                gameObject.transform.localScale = mediumSize;
+                charMovement.jumpHeight = mediumJumpHeight;
+                AudioManager.Instance.Play(getSmallerAudio);
+                break;
+
+            case SizeStates.medium:
+                cubeSize = SizeStates.big;
+                gameObject.transform.localScale = bigSize;
+                charMovement.jumpHeight = bigJumpHeight;
+                AudioManager.Instance.Play(getBiggerAudio);
+                break;
+
+            default:
+                break;
+        }
+        
+    }
+
+    public void MediumSmallFlip()
+    {        
+        switch (cubeSize)
+        {
+            case SizeStates.small:
+                cubeSize = SizeStates.medium;
+                gameObject.transform.localScale = mediumSize;
+                charMovement.jumpHeight = mediumJumpHeight;
+                AudioManager.Instance.Play(getBiggerAudio);
+                break;
+
+            case SizeStates.medium:
+                cubeSize = SizeStates.small;
+                gameObject.transform.localScale = smallSize;
+                charMovement.jumpHeight = smallJumpHeight;
+                AudioManager.Instance.Play(getSmallerAudio);
+                break;
+
+            default:
+                break;
+        }
+        
     }
 
 }
