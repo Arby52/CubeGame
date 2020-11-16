@@ -12,6 +12,7 @@ public class CharacterMechanics : MonoBehaviour
         big
     };
 
+    MeshRenderer meshRenderer;
     CharacterMovement charMovement;
     float lastTime = 0;
 
@@ -53,6 +54,10 @@ public class CharacterMechanics : MonoBehaviour
     [SerializeField]
     float upgradedSpeed;
 
+    [HideInInspector]
+    public Vector3 checkpointPosition;
+    bool hasDied = false;
+
     //Sound Effects
     [SerializeField]
     AudioClip getBiggerAudio;
@@ -63,6 +68,8 @@ public class CharacterMechanics : MonoBehaviour
 
     void Start()
     {
+        meshRenderer = GetComponent<MeshRenderer>();
+
         smallJumpHeight = baseSmallJumpHeight;
         mediumJumpHeight = baseMediumJumpHeight;
         bigJumpHeight = baseBigJumpHeight;
@@ -72,12 +79,33 @@ public class CharacterMechanics : MonoBehaviour
         charMovement.speed = baseSpeed;
         powerState = PowerStates.none;
 
+        //Original checkpoint position is the first spawn of the cube.
+        checkpointPosition = transform.position;
+
+    }
+
+    public void Die()
+    {
+        hasDied = true;
+        GoToCheckpoint();
+    }
+
+    public void GoToCheckpoint()
+    {
+        charMovement.controller.enabled = false;
+        gameObject.transform.position = checkpointPosition;
+        charMovement.controller.enabled = true;
+    }
+
+    public void SetCheckpoint(Vector3 _position)
+    {
+        checkpointPosition = _position;
     }
 
     public void ChangeColour(Material _material, PowerStates _state)
     {
         PowerStates prevState = powerState;
-        GetComponent<MeshRenderer>().material = _material;
+        meshRenderer.material = _material;
         powerState = _state;
         AudioManager.Instance.Play(colourChangeAudio);
 

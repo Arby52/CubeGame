@@ -79,7 +79,7 @@ MonoBehaviour:
   xSensitivity: 5
   ySensitivity: 5
   minYAngle: 0
-  maxYAngle: 90
+  maxYAngle: 85
   invertYAxis: 0
   cameraHeightRotation: {fileID: 3725062280074913992}
   player: {fileID: 3725062280054290803}
@@ -164,7 +164,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5480536309880887720}
-  m_LocalRotation: {x: -0, y: -0, z: -0.0025804378, w: 0.99999666}
+  m_LocalRotation: {x: 0, y: 0, z: -0.0025831591, w: 0.99999666}
   m_LocalPosition: {x: -0.21, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -205,10 +205,15 @@ MonoBehaviour:
   smallSize: {x: 0.5, y: 0.5, z: 0.5}
   mediumSize: {x: 1, y: 1, z: 1}
   bigSize: {x: 2, y: 2, z: 2}
-  smallJumpHeight: 3
-  mediumJumpHeight: 2.5
-  bigJumpHeight: 2
-  inputDelay: 0.1
+  baseSmallJumpHeight: 3
+  baseMediumJumpHeight: 2.5
+  baseBigJumpHeight: 2
+  upgradedSmallJumpHeight: 6
+  upgradedMediumJumpHeight: 5
+  upgradedBigJumpHeight: 4
+  baseSpeed: 4
+  upgradedSpeed: 8
+  checkpointPosition: {x: 0, y: 0, z: 0}
   getBiggerAudio: {fileID: 8300000, guid: 3819dac0d7b1796428d1b83f5c957c4b, type: 3}
   getSmallerAudio: {fileID: 8300000, guid: ef56a54afe7115a40ba7dd5c16a2579a, type: 3}
   colourChangeAudio: {fileID: 8300000, guid: fbfc1c7c6950f91449e00ca477eb2d1f, type: 3}

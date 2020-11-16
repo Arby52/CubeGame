@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    CharacterController controller;
+    [HideInInspector]
+    public CharacterController controller;
     [SerializeField]
     Vector3 movement;
     bool isGrounded;
@@ -47,7 +48,6 @@ public class CharacterMovement : MonoBehaviour
         {
             movement.y -= gravity * Time.deltaTime;
         }
-        
         controller.Move(movement *Time.fixedDeltaTime);
     }
 }
