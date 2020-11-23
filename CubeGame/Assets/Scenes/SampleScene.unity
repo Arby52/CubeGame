@@ -2538,7 +2538,7 @@ PrefabInstance:
     - target: {fileID: 525963881, guid: acbe415bf3b2d4348b7455410463d8fe, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fe1eb81f34ad67642a36b41b1ce8cb37, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 525963882, guid: acbe415bf3b2d4348b7455410463d8fe, type: 3}
       propertyPath: m_LocalPosition.z
       value: 4.404
@@ -26944,20 +26944,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 984529889, guid: cad2c6848a0265c4f9f039a153e022fe, type: 3}
+      propertyPath: m_Name
+      value: GroundDetectionBottom
+      objectReference: {fileID: 0}
     - target: {fileID: 3725062280054290803, guid: cad2c6848a0265c4f9f039a153e022fe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.46
+      value: -43.5
       objectReference: {fileID: 0}
     - target: {fileID: 3725062280054290803, guid: cad2c6848a0265c4f9f039a153e022fe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 156.5
+      value: 1.93
       objectReference: {fileID: 0}
     - target: {fileID: 3725062280054290803, guid: cad2c6848a0265c4f9f039a153e022fe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.945
+      value: 28.29
       objectReference: {fileID: 0}
     - target: {fileID: 3725062280054290803, guid: cad2c6848a0265c4f9f039a153e022fe,
         type: 3}
@@ -26999,125 +27003,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.296
       objectReference: {fileID: 0}
-    - target: {fileID: 3725062280209690459, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: field of view
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 3725062280209690459, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: m_projectionMatrixMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3725062280209690461, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: maxYAngle
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 5480536309880887720, guid: cad2c6848a0265c4f9f039a153e022fe,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8017027250673140332, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8017027250673140332, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: m_Drag
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8017027250673140332, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8017027250673140332, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795710159235497491, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: gravity
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 9081432890803467432, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: inputDelay
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9081432890803467432, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: baseSpeed
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9081432890803467432, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: upgradedSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9081432890803467432, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: baseSmallJumpHeight
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9081432890803467432, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: baseMediumJumpHeight
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9081432890803467432, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: baseBigJumpHeight
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9081432890803467432, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: upgradedSmallJumpHeight
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9081432890803467432, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: upgradedMediumJumpHeight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9081432890803467432, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: upgradedBigJumpHeight
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9081432890803467432, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: cubeSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142929677124389010, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: m_SlopeLimit
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142929677124389010, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: m_StepOffset
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142929677124389010, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: m_SkinWidth
-      value: 0.0001
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142929677124389010, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: m_MinMoveDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142929677124389010, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: m_Height
-      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cad2c6848a0265c4f9f039a153e022fe, type: 3}

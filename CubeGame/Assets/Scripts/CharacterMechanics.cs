@@ -134,6 +134,10 @@ public class CharacterMechanics : MonoBehaviour
                 }                
                 break;
 
+            case PowerStates.sticky:
+                charMovement.isSticky = false;
+                break;
+
             default:
                 break;
         }
@@ -161,6 +165,10 @@ public class CharacterMechanics : MonoBehaviour
                         charMovement.jumpHeight = smallJumpHeight;
                         break;
                 }
+                break;
+
+            case PowerStates.sticky:
+                charMovement.isSticky = true;
                 break;
 
             default:

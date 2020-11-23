@@ -6,7 +6,8 @@ public enum PowerStates
 {
     none,
     speed,
-    jumpHeight
+    jumpHeight,
+    sticky
 }
 
 [ExecuteAlways]

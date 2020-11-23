@@ -15,12 +15,29 @@ public class CharacterMovement : MonoBehaviour
     public float jumpHeight;
     public float gravity;
 
+    [HideInInspector]
+    public bool isSticky;
+
+    public bool stickyCastSize;
+
+    //Ground
+    [SerializeField]
+    private GameObject groundDetectionParent;
+    private Transform[] groundDetectors = new Transform[4];
+
+
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         movement = Vector3.zero;
-        isGrounded = false;        
+        isGrounded = false;       
+        
+        //Get all grounded raycasts
+        for(int i = 0; i < groundDetectors.Length; i++)
+        {
+            groundDetectors[i] = groundDetectionParent.transform.GetChild(i);
+        }
     }
 
     // Update is called once per frame
@@ -38,10 +55,11 @@ public class CharacterMovement : MonoBehaviour
         movement.x = direction.x * speed;
         movement.z = direction.z * speed;
 
-        if (controller.isGrounded && Input.GetButton("Jump"))
+        //If on the ground and hit the jump button
+        if (GroundedCheck() && Input.GetButton("Jump"))
         {
             movement.y = jumpHeight;
-        } else if (controller.isGrounded) //If on the ground, y velocity is 0.
+        } else if (GroundedCheck()) //If on the ground, and not hitting jump button
         {
             movement.y = 0;
         } else //If not on ground, get affected by gravity.
@@ -50,4 +68,55 @@ public class CharacterMovement : MonoBehaviour
         }
         controller.Move(movement *Time.fixedDeltaTime);
     }
+
+
+    bool GroundedCheck()
+    {
+        bool grounded = false;
+        if (isSticky) //Is Sticky
+        {
+            //Ground            
+
+            if(Physics.CheckBox(transform.position, transform.localScale / 2, transform.rotation, LayerMask.NameToLayer("Player"))) { 
+                grounded = true;
+            }
+
+            foreach (Transform t in groundDetectors)
+            {
+                RaycastHit hit;
+                float distance = 0.1f;
+
+                if (Physics.Raycast(t.position, -Vector3.up, out hit, distance))
+                {
+                    if (hit.transform.tag != "Player")
+                    {
+                        grounded = true;
+                    }
+                }
+            }
+
+            return grounded;
+
+        }
+        else //Not Sticky
+        {
+            //Ground
+            foreach (Transform t in groundDetectors)
+            {
+                RaycastHit hit;
+                float distance = 0.1f;
+
+                if (Physics.Raycast(t.position, -Vector3.up, out hit, distance))
+                {
+                    if (hit.transform.tag != "Player")
+                    {
+                        grounded = true;
+                    }
+                }
+            }
+
+            return grounded;
+        }
+    }
+   
 }
