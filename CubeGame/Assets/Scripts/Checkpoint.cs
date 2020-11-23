@@ -22,7 +22,6 @@ public class Checkpoint : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
         meshRenderer.material = notActiveMat;
         allCheckpoints.Add(this);
-        print(allCheckpoints.Count);
     }
 
     private void OnTriggerEnter(Collider other)
