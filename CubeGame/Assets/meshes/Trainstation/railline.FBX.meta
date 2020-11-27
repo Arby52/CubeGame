@@ -3,7 +3,17 @@ guid: ac0b3024a4c13f44fb9f9d2434ef0640
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: darkwood
+    second: {fileID: 2100000, guid: fe1eb81f34ad67642a36b41b1ce8cb37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal2
+    second: {fileID: 2100000, guid: 01ceb50731d02504791b1264477793c2, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

@@ -347,10 +347,6 @@ MonoBehaviour:
   isSticky: 0
   stickyCastSize: 0
   groundDetectionParent: {fileID: 984529889}
-  frontDetectionParent: {fileID: 0}
-  leftDetectionParent: {fileID: 0}
-  rightDetectionParent: {fileID: 0}
-  backDetectionParent: {fileID: 0}
 --- !u!114 &9081432890803467432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,8 +370,8 @@ MonoBehaviour:
   upgradedSmallJumpHeight: 6
   upgradedMediumJumpHeight: 5
   upgradedBigJumpHeight: 4
-  baseSpeed: 1.5
-  upgradedSpeed: 3
+  baseSpeed: 2
+  upgradedSpeed: 4
   checkpointPosition: {x: 0, y: 0, z: 0}
   getBiggerAudio: {fileID: 8300000, guid: 3819dac0d7b1796428d1b83f5c957c4b, type: 3}
   getSmallerAudio: {fileID: 8300000, guid: ef56a54afe7115a40ba7dd5c16a2579a, type: 3}
