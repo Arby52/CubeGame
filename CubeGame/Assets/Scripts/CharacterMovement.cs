@@ -81,6 +81,12 @@ public class CharacterMovement : MonoBehaviour
                 grounded = true;
             }
 
+            if (controller.isGrounded)
+            {
+                grounded = true;
+            }
+
+            /*
             foreach (Transform t in groundDetectors)
             {
                 RaycastHit hit;
@@ -94,12 +100,19 @@ public class CharacterMovement : MonoBehaviour
                     }
                 }
             }
+            */
 
             return grounded;
 
         }
         else //Not Sticky
         {
+            if (controller.isGrounded)
+            {
+                grounded = true;
+            }
+
+            /*
             //Ground
             foreach (Transform t in groundDetectors)
             {
@@ -114,6 +127,7 @@ public class CharacterMovement : MonoBehaviour
                     }
                 }
             }
+            */
 
             return grounded;
         }
