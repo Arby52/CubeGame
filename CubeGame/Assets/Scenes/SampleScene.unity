@@ -2989,6 +2989,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: feb3266eb38d1754d8cebc302dc83635, type: 3}
+--- !u!1 &208947844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: feb3266eb38d1754d8cebc302dc83635,
+    type: 3}
+  m_PrefabInstance: {fileID: 208947843}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &208947845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208947844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a4362f8738828046934dbcfc7884aae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: LevelA
+--- !u!65 &208947846
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208947844}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5933335, y: 0.15, z: 3.67}
+  m_Center: {x: 0.41615558, y: 1.04094725e-14, z: 1.73}
 --- !u!1 &219493135
 GameObject:
   m_ObjectHideFlags: 0
