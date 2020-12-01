@@ -3,7 +3,22 @@ guid: f0b62f67aaf15354ca0b45afd1de5d1b
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lowred
+    second: {fileID: 2100000, guid: a94e6ba5e0ddf5e449a19e948987a69e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal
+    second: {fileID: 2100000, guid: 11728b7df593b5e40a5035bc4fd3c6bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal2
+    second: {fileID: 2100000, guid: 01ceb50731d02504791b1264477793c2, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
