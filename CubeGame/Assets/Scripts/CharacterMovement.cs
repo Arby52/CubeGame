@@ -18,7 +18,6 @@ public class CharacterMovement : MonoBehaviour
     [HideInInspector]
     public bool isSticky;
 
-    public bool stickyCastSize;
 
     //Ground
     [SerializeField]
