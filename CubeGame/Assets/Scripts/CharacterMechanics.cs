@@ -16,6 +16,8 @@ public class CharacterMechanics : MonoBehaviour
     CharacterMovement charMovement;
     float lastTime = 0;
 
+    public int coinAmount;
+
     [SerializeField]
     PowerStates powerState;
 

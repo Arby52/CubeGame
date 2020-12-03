@@ -13,6 +13,7 @@ public class LoadLevel : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             SceneManager.LoadScene(sceneName);
+            CoinRotation.coinList.Clear();
         }
         
     }
