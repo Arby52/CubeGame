@@ -10169,15 +10169,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9081432890803467432, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: baseSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9081432890803467432, guid: cad2c6848a0265c4f9f039a153e022fe,
-        type: 3}
-      propertyPath: upgradedSpeed
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cad2c6848a0265c4f9f039a153e022fe, type: 3}
