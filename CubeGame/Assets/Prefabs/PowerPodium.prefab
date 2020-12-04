@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2455427603058425559}
   - component: {fileID: 2455427603058425557}
   - component: {fileID: 2455427603058425556}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PowerPodium
   m_TagString: PowerPodium
   m_Icon: {fileID: 0}

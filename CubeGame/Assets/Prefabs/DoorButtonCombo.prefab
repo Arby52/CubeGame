@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 7718395744953492085}
   - component: {fileID: 7718395744953492086}
   - component: {fileID: 7718395744953492087}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DoorPad
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6472757478315590808}
   - component: {fileID: 6472757478315590815}
   - component: {fileID: 6472757478315590814}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DeathZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 6472757478557380566}
   - component: {fileID: 6472757478557380560}
   - component: {fileID: 6472757478557380567}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Visible bit of the death zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
