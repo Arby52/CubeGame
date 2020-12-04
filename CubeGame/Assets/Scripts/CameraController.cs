@@ -14,10 +14,8 @@ public class CameraController : MonoBehaviour
 
     float mouseX;
     float mouseY;
-    [SerializeField]
-    Transform cameraHeightRotation;
-    [SerializeField]
-    Transform player;
+    public Transform cameraHeightRotation;
+    public Transform player;
 
     private void Start()
     {

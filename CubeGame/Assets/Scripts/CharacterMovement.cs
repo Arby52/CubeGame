@@ -8,7 +8,6 @@ public class CharacterMovement : MonoBehaviour
     public CharacterController controller;
     [SerializeField]
     Vector3 movement;
-    bool isGrounded;
     [HideInInspector]
     public float speed;
     [HideInInspector]
@@ -20,8 +19,7 @@ public class CharacterMovement : MonoBehaviour
 
 
     //Ground
-    [SerializeField]
-    private GameObject groundDetectionParent;
+    public GameObject groundDetectionParent;
     private Transform[] groundDetectors = new Transform[4];
 
 
@@ -29,8 +27,7 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        movement = Vector3.zero;
-        isGrounded = false;       
+        movement = Vector3.zero;     
         
         //Get all grounded raycasts
         for(int i = 0; i < groundDetectors.Length; i++)
@@ -66,6 +63,9 @@ public class CharacterMovement : MonoBehaviour
             movement.y -= gravity * Time.deltaTime;
         }
         controller.Move(movement *Time.fixedDeltaTime);
+
+        Debug.Log("speed is " + speed);
+        Debug.Log("jump is " + jumpHeight);
     }
 
 

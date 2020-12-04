@@ -14,59 +14,42 @@ public class CharacterMechanics : MonoBehaviour
 
     MeshRenderer meshRenderer;
     CharacterMovement charMovement;
-    float lastTime = 0;
 
     public int coinAmount;
 
-    [SerializeField]
-    PowerStates powerState;
+    public PowerStates powerState;
 
     public SizeStates cubeSize = SizeStates.medium;
 
     //Sizes
-    [SerializeField]
-    Vector3 smallSize;
-    [SerializeField]
-    Vector3 mediumSize;
-    [SerializeField]
-    Vector3 bigSize;
+    public Vector3 smallSize;
+    public Vector3 mediumSize;
+    public Vector3 bigSize;
 
     //Jump Heights
-    [SerializeField]
-    float baseSmallJumpHeight;
-    [SerializeField]
-    float baseMediumJumpHeight;
-    [SerializeField]
-    float baseBigJumpHeight;
+    public float baseSmallJumpHeight;
+    public float baseMediumJumpHeight;
+    public float baseBigJumpHeight;
 
-    [SerializeField]
-    float upgradedSmallJumpHeight;
-    [SerializeField]
-    float upgradedMediumJumpHeight;
-    [SerializeField]
-    float upgradedBigJumpHeight;
+    public float upgradedSmallJumpHeight;
+    public float upgradedMediumJumpHeight;
+    public float upgradedBigJumpHeight;
 
     float smallJumpHeight;
     float mediumJumpHeight;
     float bigJumpHeight;
 
     //Speed
-    [SerializeField]
-    float baseSpeed;
-    [SerializeField]
-    float upgradedSpeed;
+    public float baseSpeed;
+    public float upgradedSpeed;
 
     [HideInInspector]
     public Vector3 checkpointPosition;
-    bool hasDied = false;
 
     //Sound Effects
-    [SerializeField]
-    AudioClip getBiggerAudio;
-    [SerializeField]
-    AudioClip getSmallerAudio;
-    [SerializeField]
-    AudioClip colourChangeAudio;
+    public AudioClip getBiggerAudio;
+    public AudioClip getSmallerAudio;
+    public AudioClip colourChangeAudio;
 
     void Start()
     {
@@ -86,9 +69,9 @@ public class CharacterMechanics : MonoBehaviour
 
     }
 
+
     public void Die()
     {
-        hasDied = true;
         GoToCheckpoint();
     }
 

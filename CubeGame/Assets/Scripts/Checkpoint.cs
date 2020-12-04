@@ -7,13 +7,10 @@ public class Checkpoint : MonoBehaviour
     static List<Checkpoint> allCheckpoints = new List<Checkpoint>();
 
     MeshRenderer meshRenderer;
-    [SerializeField]
-    Material notActiveMat;
-    [SerializeField]
-    Material activeMat;
+    public Material notActiveMat;
+    public Material activeMat;
 
-    [SerializeField]
-    GameObject spawnPos;
+    public GameObject spawnPos;
 
     bool active = false;
 

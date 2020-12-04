@@ -345,7 +345,6 @@ MonoBehaviour:
   jumpHeight: 1
   gravity: 8
   isSticky: 0
-  stickyCastSize: 0
   groundDetectionParent: {fileID: 984529889}
 --- !u!114 &9081432890803467432
 MonoBehaviour:
@@ -359,6 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e259371658a40f9419397d4aae380087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinAmount: 0
   powerState: 0
   cubeSize: 1
   smallSize: {x: 0.5, y: 0.5, z: 0.5}
