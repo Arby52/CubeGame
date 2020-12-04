@@ -62,7 +62,7 @@ public class CharacterMovement : MonoBehaviour
         {
             movement.y -= gravity * Time.deltaTime;
         }
-        controller.Move(movement *Time.fixedDeltaTime);
+        controller.Move(movement *Time.deltaTime);
 
         
         Debug.Log("speed is " + speed);
