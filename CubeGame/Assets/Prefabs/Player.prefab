@@ -343,7 +343,7 @@ MonoBehaviour:
   movement: {x: 0, y: 0, z: 0}
   speed: 2
   jumpHeight: 1
-  gravity: 8
+  gravity: 13
   isSticky: 0
   groundDetectionParent: {fileID: 984529889}
 --- !u!114 &9081432890803467432
@@ -364,14 +364,14 @@ MonoBehaviour:
   smallSize: {x: 0.5, y: 0.5, z: 0.5}
   mediumSize: {x: 1, y: 1, z: 1}
   bigSize: {x: 2, y: 2, z: 2}
-  baseSmallJumpHeight: 3.5
-  baseMediumJumpHeight: 2.5
-  baseBigJumpHeight: 1.5
-  upgradedSmallJumpHeight: 6
-  upgradedMediumJumpHeight: 5
-  upgradedBigJumpHeight: 4
-  baseSpeed: 2
-  upgradedSpeed: 4
+  baseSmallJumpHeight: 12
+  baseMediumJumpHeight: 8
+  baseBigJumpHeight: 5
+  upgradedSmallJumpHeight: 18
+  upgradedMediumJumpHeight: 16
+  upgradedBigJumpHeight: 11
+  baseSpeed: 8
+  upgradedSpeed: 14
   checkpointPosition: {x: 0, y: 0, z: 0}
   getBiggerAudio: {fileID: 8300000, guid: 3819dac0d7b1796428d1b83f5c957c4b, type: 3}
   getSmallerAudio: {fileID: 8300000, guid: ef56a54afe7115a40ba7dd5c16a2579a, type: 3}
