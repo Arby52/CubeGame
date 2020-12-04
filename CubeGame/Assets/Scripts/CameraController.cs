@@ -65,7 +65,7 @@ public class CameraController : MonoBehaviour
             {
                 if (playerToCam.magnitude >= 0.1)
                 {
-                    cam.transform.position = Vector3.MoveTowards(cam.transform.position, cameraYMovement.transform.position, 0.2f);
+                    cam.transform.position = Vector3.MoveTowards(cam.transform.position, cameraYMovement.transform.position, 0.1f);
                 }
             }
             else if (!(Physics.Linecast(cam.transform.position, behindCam, LayerMask.NameToLayer("Player"))))
