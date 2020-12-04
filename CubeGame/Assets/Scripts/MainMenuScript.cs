@@ -8,6 +8,12 @@ public class MainMenuScript : MonoBehaviour
     public GameObject MainMenu;
     public GameObject Options;
 
+    private void Start()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void QuitGame()
     {
         Application.Quit();

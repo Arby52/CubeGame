@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PowerPodium
   - Coin
+  - ScoreUI
   layers:
   - Default
   - TransparentFX

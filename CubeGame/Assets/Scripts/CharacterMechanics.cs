@@ -51,6 +51,10 @@ public class CharacterMechanics : MonoBehaviour
     public AudioClip getSmallerAudio;
     public AudioClip colourChangeAudio;
 
+    public GameObject pauseMenu;
+    [HideInInspector]
+    public bool isPaused = false;
+
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -69,6 +73,28 @@ public class CharacterMechanics : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (!isPaused)
+            {
+                Time.timeScale = 0;
+                pauseMenu.SetActive(true);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                isPaused = true;
+            } else
+            {
+                Time.timeScale = 1;
+                pauseMenu.SetActive(false);
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                isPaused = false;
+            }
+
+        }
+    }
 
     public void Die()
     {

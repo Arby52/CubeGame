@@ -12,6 +12,9 @@ public class SettingsMenu : MonoBehaviour
     Resolution[] resolutions;
     public TMP_Dropdown resolutionDropdown;
     public TMP_Dropdown graphicsDropdown;
+    public Slider masterSlider;
+    public Slider musicSlider;
+    public Slider sfxSlider;
 
     private void Start()
     {
@@ -39,6 +42,18 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
 
         graphicsDropdown.value = QualitySettings.GetQualityLevel();
+
+        float a;
+        mixer.GetFloat("masterVolume", out a);
+        masterSlider.value = a;
+
+        float b;
+        mixer.GetFloat("musicVolume", out b);
+        musicSlider.value = b;
+
+        float c;
+        mixer.GetFloat("sfxVolume", out c);
+        sfxSlider.value = c;
     }
 
     public void SetMasterVolume(float _volume)
@@ -82,5 +97,4 @@ public class SettingsMenu : MonoBehaviour
         Resolution res = resolutions[_resolution];
         Screen.SetResolution(res.width, res.height, Screen.fullScreenMode);
     }
-
 }

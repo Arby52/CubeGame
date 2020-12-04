@@ -11,11 +11,11 @@ public class CameraController : MonoBehaviour
 
     public bool invertYAxis;
 
-
     float mouseX;
     float mouseY;
     public Transform cameraHeightRotation;
     public Transform player;
+    CharacterMechanics mechanics;
 
     private void Start()
     {
@@ -23,23 +23,27 @@ public class CameraController : MonoBehaviour
         mouseY = 0;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        mechanics = player.gameObject.GetComponent<CharacterMechanics>();
     }
 
     void LateUpdate()
     {
-        //Camera Stuff
-        mouseX += Input.GetAxis("Mouse X") * xSensitivity;
+        if (!mechanics.isPaused)
+        {
+            //Camera Stuff
+            mouseX += Input.GetAxis("Mouse X") * xSensitivity;
 
-        if (invertYAxis)
-            mouseY += Input.GetAxis("Mouse Y") * ySensitivity;
-        else
-            mouseY -= Input.GetAxis("Mouse Y") * ySensitivity;
+            if (invertYAxis)
+                mouseY += Input.GetAxis("Mouse Y") * ySensitivity;
+            else
+                mouseY -= Input.GetAxis("Mouse Y") * ySensitivity;
 
-        mouseY = Mathf.Clamp(mouseY, minYAngle, maxYAngle);
+            mouseY = Mathf.Clamp(mouseY, minYAngle, maxYAngle);
 
-        transform.LookAt(cameraHeightRotation);
+            transform.LookAt(cameraHeightRotation);
 
-        cameraHeightRotation.rotation = Quaternion.Euler(mouseY, mouseX, 0);
-        player.rotation = Quaternion.Euler(0, mouseX, 0);
+            cameraHeightRotation.rotation = Quaternion.Euler(mouseY, mouseX, 0);
+            player.rotation = Quaternion.Euler(0, mouseX, 0);
+        }
     }
 }
