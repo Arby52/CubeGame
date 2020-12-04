@@ -64,8 +64,10 @@ public class CharacterMovement : MonoBehaviour
         }
         controller.Move(movement *Time.fixedDeltaTime);
 
+        
         Debug.Log("speed is " + speed);
         Debug.Log("jump is " + jumpHeight);
+        Debug.Log("movement is " + movement);
     }
 
 
