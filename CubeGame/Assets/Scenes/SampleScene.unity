@@ -13400,14 +13400,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 1026
+  m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -13417,7 +13417,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -15448,6 +15448,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781429786}
   m_CullTransparentMesh: 0
+--- !u!4 &1791357446 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3725062280074913992, guid: cad2c6848a0265c4f9f039a153e022fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 3725062280366506536}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1801872892
 GameObject:
   m_ObjectHideFlags: 0
@@ -17690,6 +17696,11 @@ PrefabInstance:
       propertyPath: ySensitivity
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3725062280209690461, guid: cad2c6848a0265c4f9f039a153e022fe,
+        type: 3}
+      propertyPath: cameraYMovement
+      value: 
+      objectReference: {fileID: 1791357446}
     - target: {fileID: 5480536309880887720, guid: cad2c6848a0265c4f9f039a153e022fe,
         type: 3}
       propertyPath: m_Name

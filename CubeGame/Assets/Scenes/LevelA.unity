@@ -14803,6 +14803,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaf4d0d34d26b584eb4a4af0793b728a, type: 3}
+--- !u!1 &364137642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 364137643}
+  m_Layer: 9
+  m_Name: OriginalPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &364137643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364137642}
+  m_LocalRotation: {x: -0.000000029802319, y: -2.9103828e-10, z: 1.6007105e-10, w: 1}
+  m_LocalPosition: {x: 0.027611034, y: 0.28858995, z: -9.151141}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 988402044}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &364558728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25545,8 +25575,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -34322,6 +34352,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.296
       objectReference: {fileID: 0}
+    - target: {fileID: 3725062280209690459, guid: cad2c6848a0265c4f9f039a153e022fe,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725062280209690461, guid: cad2c6848a0265c4f9f039a153e022fe,
+        type: 3}
+      propertyPath: originalPos
+      value: 
+      objectReference: {fileID: 364137643}
     - target: {fileID: 5480536309880887720, guid: cad2c6848a0265c4f9f039a153e022fe,
         type: 3}
       propertyPath: m_Name
@@ -39598,6 +39638,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8728854048086142887, guid: 7f581e9ad4548af4abdf50709a9e3f5d, type: 3}
+--- !u!4 &988402044 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3725062280074913992, guid: cad2c6848a0265c4f9f039a153e022fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 834924911}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &989038649
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -60,6 +60,36 @@ Transform:
   m_Father: {fileID: 984529890}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &364137642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 364137643}
+  m_Layer: 9
+  m_Name: OriginalPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &364137643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364137642}
+  m_LocalRotation: {x: -0.000000029802319, y: -2.9103828e-10, z: 1.6007105e-10, w: 1}
+  m_LocalPosition: {x: 0.027611034, y: 0.28858995, z: -9.151141}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3725062280074913992}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &984529889
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +212,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3725062280209690460}
+  - {fileID: 364137643}
   m_Father: {fileID: 3725062280054290803}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 33.949, y: 0, z: 0}
@@ -235,8 +266,9 @@ MonoBehaviour:
   minYAngle: 0
   maxYAngle: 85
   invertYAxis: 0
-  cameraHeightRotation: {fileID: 3725062280074913992}
+  cameraYMovement: {fileID: 3725062280074913992}
   player: {fileID: 3725062280054290803}
+  originalPos: {fileID: 364137643}
 --- !u!20 &3725062280209690459
 Camera:
   m_ObjectHideFlags: 0
@@ -260,7 +292,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -376,6 +408,8 @@ MonoBehaviour:
   getBiggerAudio: {fileID: 8300000, guid: 3819dac0d7b1796428d1b83f5c957c4b, type: 3}
   getSmallerAudio: {fileID: 8300000, guid: ef56a54afe7115a40ba7dd5c16a2579a, type: 3}
   colourChangeAudio: {fileID: 8300000, guid: fbfc1c7c6950f91449e00ca477eb2d1f, type: 3}
+  pauseMenu: {fileID: 0}
+  isPaused: 0
 --- !u!33 &4328621106254913089
 MeshFilter:
   m_ObjectHideFlags: 0
