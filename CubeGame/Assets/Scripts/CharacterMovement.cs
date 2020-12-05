@@ -17,10 +17,12 @@ public class CharacterMovement : MonoBehaviour
     [HideInInspector]
     public bool isSticky;
 
-
     //Ground
     public GameObject groundDetectionParent;
     private Transform[] groundDetectors = new Transform[4];
+
+    public float isGroundedGracePeriod;
+    float lastTimeGrounded;
 
 
     // Start is called before the first frame update
@@ -52,7 +54,7 @@ public class CharacterMovement : MonoBehaviour
         movement.z = direction.z * speed;
 
         //If on the ground and hit the jump button
-        if (GroundedCheck() && Input.GetButton("Jump"))
+        if (Input.GetButton("Jump") && (GroundedCheck() || Time.time - lastTimeGrounded <= isGroundedGracePeriod))
         {
             movement.y = jumpHeight;
         } else if (GroundedCheck()) //If on the ground, and not hitting jump button
@@ -74,28 +76,14 @@ public class CharacterMovement : MonoBehaviour
 
             if(Physics.CheckBox(transform.position, transform.localScale / 2, transform.rotation, LayerMask.NameToLayer("Player"))) { 
                 grounded = true;
+                lastTimeGrounded = Time.time;
             }
 
             if (controller.isGrounded)
             {
                 grounded = true;
+                lastTimeGrounded = Time.time;
             }
-
-            /*
-            foreach (Transform t in groundDetectors)
-            {
-                RaycastHit hit;
-                float distance = 0.1f;
-
-                if (Physics.Raycast(t.position, -Vector3.up, out hit, distance))
-                {
-                    if (hit.transform.tag != "Player")
-                    {
-                        grounded = true;
-                    }
-                }
-            }
-            */
 
             return grounded;
 
@@ -105,24 +93,8 @@ public class CharacterMovement : MonoBehaviour
             if (controller.isGrounded)
             {
                 grounded = true;
+                lastTimeGrounded = Time.time;
             }
-
-            /*
-            //Ground
-            foreach (Transform t in groundDetectors)
-            {
-                RaycastHit hit;
-                float distance = 0.1f;
-
-                if (Physics.Raycast(t.position, -Vector3.up, out hit, distance))
-                {
-                    if (hit.transform.tag != "Player")
-                    {
-                        grounded = true;
-                    }
-                }
-            }
-            */
 
             return grounded;
         }

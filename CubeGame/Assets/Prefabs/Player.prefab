@@ -439,6 +439,7 @@ MonoBehaviour:
   gravity: 13
   isSticky: 0
   groundDetectionParent: {fileID: 984529889}
+  isGroundedGracePeriod: 0.2
 --- !u!114 &9081432890803467432
 MonoBehaviour:
   m_ObjectHideFlags: 0
