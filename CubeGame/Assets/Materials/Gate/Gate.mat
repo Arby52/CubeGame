@@ -60,8 +60,8 @@ Material:
     m_Floats:
     - _BlendOp: 0
     - _BumpScale: 1
-    - _CameraFadingEnabled: 1
-    - _CameraFarFadeDistance: 6.35
+    - _CameraFadingEnabled: 0
+    - _CameraFarFadeDistance: 21.7
     - _CameraNearFadeDistance: 0.83
     - _Cull: 2
     - _Cutoff: 0.5
@@ -70,27 +70,27 @@ Material:
     - _DistortionEnabled: 0
     - _DistortionStrength: 5.97
     - _DistortionStrengthScaled: 0.597
-    - _DstBlend: 1
+    - _DstBlend: 10
     - _EmissionEnabled: 1
     - _FlipbookMode: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.488
+    - _Glossiness: 0.226
     - _GlossyReflections: 1
     - _LightingEnabled: 1
-    - _Metallic: 0.566
-    - _Mode: 4
+    - _Metallic: 0.379
+    - _Mode: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SoftParticlesEnabled: 1
-    - _SoftParticlesFarFadeDistance: 3
-    - _SoftParticlesNearFadeDistance: 0.5
+    - _SoftParticlesFarFadeDistance: 3.04
+    - _SoftParticlesNearFadeDistance: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 5
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _CameraFadeParams: {r: 0.83, g: 0.18115942, b: 0, a: 0}
-    - _Color: {r: 1.319508, g: 0.04139633, b: 0.010349083, a: 1}
-    - _EmissionColor: {r: 0.5283019, g: 0.09220363, b: 0.098524, a: 1}
-    - _SoftParticleFadeParams: {r: 0.5, g: 0.4, b: 0, a: 0}
+    - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
+    - _Color: {r: 0.73800004, g: 0.015536844, b: 0, a: 0.5372549}
+    - _EmissionColor: {r: 1.47, g: 0.5145, b: 0.52273715, a: 1}
+    - _SoftParticleFadeParams: {r: 0, g: 0.32894737, b: 0, a: 0}
