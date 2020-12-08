@@ -48,4 +48,9 @@ public class Checkpoint : MonoBehaviour
         active = false;
         meshRenderer.material = notActiveMat;
     }
+
+    private void OnDestroy()
+    {
+        allCheckpoints.Remove(this);
+    }
 }

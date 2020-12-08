@@ -61,11 +61,14 @@ public class CameraController : MonoBehaviour
             Vector3 playerToCam = cam.transform.position - cameraYMovement.position;
             Vector3 behindCam = cam.transform.position + playerToCam.normalized;
 
-            if (Physics.Linecast(cameraYMovement.position, cam.transform.position, LayerMask.NameToLayer("Player")))
+            RaycastHit hit;
+
+            if (Physics.Linecast(cameraYMovement.position, cam.transform.position, out hit, LayerMask.NameToLayer("Player")))
             {
                 if (playerToCam.magnitude >= 0.1)
                 {
-                    cam.transform.position = Vector3.MoveTowards(cam.transform.position, cameraYMovement.transform.position, 0.1f);
+                    float toMoveBy = Vector3.Distance(hit.point, cam.transform.position);
+                    cam.transform.position = Vector3.MoveTowards(cam.transform.position, cameraYMovement.transform.position, toMoveBy);
                 }
             }
             else if (!(Physics.Linecast(cam.transform.position, behindCam, LayerMask.NameToLayer("Player"))))
