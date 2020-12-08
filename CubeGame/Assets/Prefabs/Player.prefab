@@ -436,7 +436,7 @@ MonoBehaviour:
   movement: {x: 0, y: 0, z: 0}
   speed: 2
   jumpHeight: 1
-  gravity: 13
+  gravity: 20
   isSticky: 0
   groundDetectionParent: {fileID: 984529889}
   isGroundedGracePeriod: 0.2
