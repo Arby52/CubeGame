@@ -20312,6 +20312,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 208947845, guid: 381b4bff7f9974d4fa006f5cbef192d2, type: 3}
+      propertyPath: sceneName
+      value: MainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 1052483072, guid: 381b4bff7f9974d4fa006f5cbef192d2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
