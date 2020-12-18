@@ -12,6 +12,8 @@ public class AudioManager : MonoBehaviour
     AudioSource SFXSource;
     AudioSource MusicSource;
 
+    public AudioClip music;
+
     //Singleton stuff
     public static AudioManager Instance = null;
 
@@ -34,9 +36,16 @@ public class AudioManager : MonoBehaviour
         SFXSource.outputAudioMixerGroup = SFXMixerGroup;
         MusicSource = gameObject.AddComponent<AudioSource>();
         MusicSource.outputAudioMixerGroup = MusicMixerGroup;
+
+        MusicSource.clip = music;
+        MusicSource.loop = true;
+        if (!MusicSource.isPlaying)
+        {
+            MusicSource.Play();
+        }
     }
 
-    //Only one sfx at a time rn. make it so it creates a new game object for the duration of the audio clip and then deletes it.
+    //Only one sfx at a time rn. 
     public void Play(AudioClip _audio)
     {
         SFXSource.clip = _audio;

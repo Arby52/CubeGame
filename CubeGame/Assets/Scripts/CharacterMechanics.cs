@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using TMPro;
 
 public class CharacterMechanics : MonoBehaviour
 {
@@ -55,6 +56,13 @@ public class CharacterMechanics : MonoBehaviour
     [HideInInspector]
     public bool isPaused = false;
 
+    public static float seconds = 0;
+    public static int minutes = 0;
+
+    public TMP_Text coinText;
+    public TMP_Text timerText;
+
+
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -70,11 +78,26 @@ public class CharacterMechanics : MonoBehaviour
 
         //Original checkpoint position is the first spawn of the cube.
         checkpointPosition = transform.position;
-
+        coinText.text = CoinRotation.currentScore.ToString() + " - " + CoinRotation.totalCoins.ToString();
     }
 
     private void Update()
     {
+        seconds += Time.deltaTime;
+        if(seconds >= 59.9f)
+        {
+            minutes++;
+            seconds = 0;
+        }
+        if(minutes >= 60)
+        {
+            minutes = 0;
+            seconds = 0;
+        }
+
+        timerText.text = minutes.ToString() + "-" + Mathf.RoundToInt(seconds).ToString();
+
+
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Escape))
         {
             if (!isPaused)

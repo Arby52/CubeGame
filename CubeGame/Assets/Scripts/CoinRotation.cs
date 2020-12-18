@@ -7,15 +7,17 @@ public class CoinRotation : MonoBehaviour
 {
     //Used to know how many coins exist.
     public static List<CoinRotation> coinList = new List<CoinRotation>();
+    public static int totalCoins = 0;
     public static int currentScore = 0;
     static TMP_Text coinText;
 
     private void Start()
     {
+        totalCoins++;
         coinText = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<TMP_Text>();
-        coinText.text = currentScore.ToString();
-        coinList.Add(this);        
-       
+        coinText.text = currentScore.ToString() + " - " + totalCoins.ToString();
+        Debug.Log(totalCoins.ToString());
+        coinList.Add(this);            
     }
 
     void Update()
@@ -30,7 +32,8 @@ public class CoinRotation : MonoBehaviour
             other.gameObject.GetComponent<CharacterMechanics>().coinAmount++;
             currentScore++;
             Destroy(this.gameObject);
-            coinText.text = currentScore.ToString();
+            coinText.text = currentScore.ToString() + " - " + totalCoins.ToString();
+            Debug.Log(currentScore);
         }        
     }
 }

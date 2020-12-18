@@ -8,13 +8,11 @@ public class LoadLevel : MonoBehaviour
     public string sceneName;
 
     private void OnTriggerEnter(Collider other)
-    {
-        
+    {        
         if (other.gameObject.tag == "Player")
         {
             SceneManager.LoadScene(sceneName);
             CoinRotation.coinList.Clear();
-        }
-        
+        }        
     }
 }

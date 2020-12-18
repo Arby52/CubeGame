@@ -21,6 +21,7 @@ public class SettingsMenu : MonoBehaviour
     public GameObject controlsDisplay;
 
     Resolution[] resolutions;
+
     public TMP_Dropdown resolutionDropdown;
     public TMP_Dropdown graphicsDropdown;
     public Slider masterSlider;
@@ -34,6 +35,11 @@ public class SettingsMenu : MonoBehaviour
     public TMP_Text xText;
 
     public settingsState currentState;
+
+    public static float masterVol = 1;
+    public static float sfxVol = 1;
+    public static float musicVol = 1;
+
 
     private void Start()
     {
@@ -74,17 +80,22 @@ public class SettingsMenu : MonoBehaviour
 
         graphicsDropdown.value = QualitySettings.GetQualityLevel();
 
-        float a;
-        mixer.GetFloat("masterVolume", out a);
-        masterSlider.value = a;
+        mixer.GetFloat("masterVolume", out masterVol);
+        masterSlider.value = masterVol;
 
-        float b;
-        mixer.GetFloat("musicVolume", out b);
-        musicSlider.value = b;
+        mixer.GetFloat("musicVolume", out musicVol);
+        musicSlider.value = musicVol;
 
-        float c;
-        mixer.GetFloat("sfxVolume", out c);
-        sfxSlider.value = c;
+        mixer.GetFloat("sfxVolume", out sfxVol);
+        sfxSlider.value = sfxVol;        
+    }
+
+    public void update()
+    {
+        if (resolutionDropdown.value != QualitySettings.GetQualityLevel())
+        {
+            resolutionDropdown.value = QualitySettings.GetQualityLevel();
+        }
     }
 
     public void SwitchState(int _state)
@@ -116,17 +127,17 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetMasterVolume(float _volume)
     {
-        mixer.SetFloat("masterVolume", _volume);
+        mixer.SetFloat("masterVolume", Mathf.Log10(_volume) * 20);
     }
 
     public void SetMusicVolume(float _volume)
     {
-        mixer.SetFloat("musicVolume", _volume);
+        mixer.SetFloat("musicVolume", Mathf.Log10(_volume) * 20);
     }
 
     public void SetSFXVolume(float _volume)
     {
-        mixer.SetFloat("sfxVolume", _volume);
+        mixer.SetFloat("sfxVolume", Mathf.Log10(_volume) * 20);
     }
 
     public void SetGraphicsQuality(int _qualityIndex)
