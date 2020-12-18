@@ -81,13 +81,13 @@ public class SettingsMenu : MonoBehaviour
         graphicsDropdown.value = QualitySettings.GetQualityLevel();
 
         mixer.GetFloat("masterVolume", out masterVol);
-        masterSlider.value = masterVol;
+        masterSlider.value = Mathf.Pow(10, masterVol / 20); 
 
         mixer.GetFloat("musicVolume", out musicVol);
-        musicSlider.value = musicVol;
+        musicSlider.value = Mathf.Pow(10, musicVol / 20);
 
         mixer.GetFloat("sfxVolume", out sfxVol);
-        sfxSlider.value = sfxVol;        
+        sfxSlider.value = Mathf.Pow(10, sfxVol / 20);
     }
 
     public void update()
