@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float xSensitivity;
-    public float ySensitivity;
-    public float minYAngle;
-    public float maxYAngle;
+    public static float xSensitivity = 5;
+    public static float ySensitivity = 5;
+    public static bool invertYAxis = false;
 
-    public bool invertYAxis;
+    public float minYAngle;
+    public float maxYAngle;    
 
     float mouseX;
     float mouseY;

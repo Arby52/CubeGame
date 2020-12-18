@@ -7,7 +7,18 @@ using TMPro;
 
 public class SettingsMenu : MonoBehaviour
 {
+    public enum settingsState
+    {
+        graphics,
+        camera,
+        controls
+    }
+
     public AudioMixer mixer;
+
+    public GameObject graphicsDisplay;
+    public GameObject cameraDisplay;
+    public GameObject controlsDisplay;
 
     Resolution[] resolutions;
     public TMP_Dropdown resolutionDropdown;
@@ -16,8 +27,28 @@ public class SettingsMenu : MonoBehaviour
     public Slider musicSlider;
     public Slider sfxSlider;
 
+    public Slider xAxisSens;
+    public Slider yAxisSens;
+    public Toggle invertY;
+    public TMP_Text yText;
+    public TMP_Text xText;
+
+    public settingsState currentState;
+
     private void Start()
     {
+        currentState = settingsState.graphics;
+        if (!graphicsDisplay.activeInHierarchy)
+        {
+            graphicsDisplay.SetActive(true);
+            cameraDisplay.SetActive(false);
+            controlsDisplay.SetActive(false);
+        }
+
+        xAxisSens.value = CameraController.xSensitivity;
+        yAxisSens.value = CameraController.ySensitivity;
+        invertY.isOn = CameraController.invertYAxis;
+
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
@@ -54,6 +85,33 @@ public class SettingsMenu : MonoBehaviour
         float c;
         mixer.GetFloat("sfxVolume", out c);
         sfxSlider.value = c;
+    }
+
+    public void SwitchState(int _state)
+    {
+        settingsState inputState = (settingsState)_state;
+
+        switch (inputState)
+        {
+            case settingsState.camera:
+                graphicsDisplay.SetActive(false);
+                cameraDisplay.SetActive(true);
+                controlsDisplay.SetActive(false);
+                break;
+
+            case settingsState.graphics:
+                graphicsDisplay.SetActive(true);
+                cameraDisplay.SetActive(false);
+                controlsDisplay.SetActive(false);
+                break;
+
+            case settingsState.controls:
+                graphicsDisplay.SetActive(false);
+                cameraDisplay.SetActive(false);
+                controlsDisplay.SetActive(true);
+                break;
+        }
+
     }
 
     public void SetMasterVolume(float _volume)
@@ -96,5 +154,24 @@ public class SettingsMenu : MonoBehaviour
     {
         Resolution res = resolutions[_resolution];
         Screen.SetResolution(res.width, res.height, Screen.fullScreenMode);
+    }
+
+    public void SetXSensitivity()
+    {
+        CameraController.xSensitivity = xAxisSens.value;
+        xText.text = "X-Axis Sensitivity: " + xAxisSens.value;
+    }
+    public void SetYSensitivity()
+    {
+        CameraController.ySensitivity = yAxisSens.value;
+        yText.text = "Y-Axis Sensitivity: " + yAxisSens.value;
+    }
+    public void SetYInversion(bool _bool)
+    {
+        CameraController.invertYAxis = _bool;
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
