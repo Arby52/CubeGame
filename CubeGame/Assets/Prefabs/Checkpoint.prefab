@@ -27,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2973489888901219189}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.91, y: 0, z: -5.01}
-  m_LocalScale: {x: 1.1841, y: 0.053963106, z: 1.1841}
+  m_LocalScale: {x: 2, y: 0.053963106, z: 2}
   m_Children:
   - {fileID: 2973489889669638622}
   m_Father: {fileID: 0}
@@ -58,6 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,6 +83,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!135 &2973489888901219191
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -110,6 +112,7 @@ MonoBehaviour:
   notActiveMat: {fileID: 2100000, guid: b690463dbfeb85f4b9c82d20d3722102, type: 2}
   activeMat: {fileID: 2100000, guid: 45e6808db1f110c4b95767f49a6e05de, type: 2}
   spawnPos: {fileID: 2973489889669638623}
+  checkAudio: {fileID: 8300000, guid: 771b3bb4cd873334ab92c51ea067eb79, type: 3}
 --- !u!1 &2973489889669638623
 GameObject:
   m_ObjectHideFlags: 0

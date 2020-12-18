@@ -8,14 +8,15 @@ public class AudioManager : MonoBehaviour
     public AudioMixer MasterMixer;
     public AudioMixerGroup MusicMixerGroup;
     public AudioMixerGroup SFXMixerGroup;
-
-    AudioSource SFXSource;
+    
     AudioSource MusicSource;
 
     public AudioClip music;
 
     //Singleton stuff
     public static AudioManager Instance = null;
+
+    public List<AudioSource> sfxList = new List<AudioSource>();
 
     private void Awake()
     {
@@ -31,9 +32,7 @@ public class AudioManager : MonoBehaviour
     }
 
     private void Start()
-    {
-        SFXSource = gameObject.AddComponent<AudioSource>();
-        SFXSource.outputAudioMixerGroup = SFXMixerGroup;
+    {        
         MusicSource = gameObject.AddComponent<AudioSource>();
         MusicSource.outputAudioMixerGroup = MusicMixerGroup;
 
@@ -45,10 +44,30 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        for(int i = 0; i < sfxList.Count; i++)
+        {
+            if (sfxList[i] != null)
+            {
+                if (!sfxList[i].isPlaying)
+                {
+                    AudioSource referance = sfxList[i];
+                    sfxList.Remove(referance);
+                    Destroy(referance);
+                }
+            }
+        }
+    }
+
     //Only one sfx at a time rn. 
     public void Play(AudioClip _audio)
     {
-        SFXSource.clip = _audio;
-        SFXSource.Play();
+        GameObject sfxChild = new GameObject();        
+        AudioSource sfx = sfxChild.AddComponent<AudioSource>();
+        sfx.outputAudioMixerGroup = SFXMixerGroup;
+        sfx.clip = _audio;
+        sfx.Play();
+        sfxList.Add(sfx);
     }
 }

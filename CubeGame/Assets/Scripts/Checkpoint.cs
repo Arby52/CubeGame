@@ -12,6 +12,8 @@ public class Checkpoint : MonoBehaviour
 
     public GameObject spawnPos;
 
+    public AudioClip checkAudio;
+
     bool active = false;
 
     private void Start()
@@ -28,6 +30,7 @@ public class Checkpoint : MonoBehaviour
             if (other.gameObject.tag == "Player")
             {
                 other.gameObject.GetComponent<CharacterMechanics>().SetCheckpoint(spawnPos.transform.position);
+                AudioManager.Instance.Play(checkAudio);
                 Activate();
             }
         }

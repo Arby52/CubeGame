@@ -51,6 +51,8 @@ public class CharacterMechanics : MonoBehaviour
     public AudioClip getBiggerAudio;
     public AudioClip getSmallerAudio;
     public AudioClip colourChangeAudio;
+    public AudioClip levelStartAudio;
+
 
     public GameObject pauseMenu;
     [HideInInspector]
@@ -65,6 +67,8 @@ public class CharacterMechanics : MonoBehaviour
 
     void Start()
     {
+        AudioManager.Instance.Play(levelStartAudio);
+
         meshRenderer = GetComponent<MeshRenderer>();
 
         smallJumpHeight = baseSmallJumpHeight;

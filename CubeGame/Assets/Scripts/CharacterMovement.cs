@@ -17,6 +17,7 @@ public class CharacterMovement : MonoBehaviour
     [HideInInspector]
     public bool isSticky;
 
+
     //Ground
     public GameObject groundDetectionParent;
     private Transform[] groundDetectors = new Transform[4];
@@ -24,6 +25,9 @@ public class CharacterMovement : MonoBehaviour
     public float isGroundedGracePeriod;
     float lastTimeGrounded;
 
+    public AudioClip jumpAudio;
+    float lastAudioTime = 0;
+    float audioDelay = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +61,11 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetButton("Jump") && (GroundedCheck() || Time.time - lastTimeGrounded <= isGroundedGracePeriod))
         {
             movement.y = jumpHeight;
+            if (Time.time - lastAudioTime > audioDelay)
+            {
+                lastAudioTime = Time.time;
+                AudioManager.Instance.Play(jumpAudio);
+            }
         } else if (GroundedCheck()) //If on the ground, and not hitting jump button
         {
             movement.y = 0;

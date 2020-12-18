@@ -262,11 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a35696072da97840814641c2c975f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xSensitivity: 5
-  ySensitivity: 5
   minYAngle: 0
   maxYAngle: 85
-  invertYAxis: 0
   cameraYMovement: {fileID: 3725062280074913992}
   player: {fileID: 3725062280054290803}
   originalPos: {fileID: 364137643}
@@ -440,6 +437,7 @@ MonoBehaviour:
   isSticky: 0
   groundDetectionParent: {fileID: 984529889}
   isGroundedGracePeriod: 0.2
+  jumpAudio: {fileID: 8300000, guid: c385ba11c74d64f4a82be185e06a0cf1, type: 3}
 --- !u!114 &9081432890803467432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,9 +467,12 @@ MonoBehaviour:
   checkpointPosition: {x: 0, y: 0, z: 0}
   getBiggerAudio: {fileID: 8300000, guid: 3819dac0d7b1796428d1b83f5c957c4b, type: 3}
   getSmallerAudio: {fileID: 8300000, guid: ef56a54afe7115a40ba7dd5c16a2579a, type: 3}
-  colourChangeAudio: {fileID: 8300000, guid: fbfc1c7c6950f91449e00ca477eb2d1f, type: 3}
+  colourChangeAudio: {fileID: 8300000, guid: 0ef75ea80bbbe334ea6fe8173ce0e955, type: 3}
+  levelStartAudio: {fileID: 8300000, guid: ef32425b6ea806d49b99883c8d19bf7c, type: 3}
   pauseMenu: {fileID: 0}
   isPaused: 0
+  coinText: {fileID: 0}
+  timerText: {fileID: 0}
 --- !u!33 &4328621106254913089
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -495,6 +496,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -519,6 +521,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!143 &9142929677124389010
 CharacterController:
   m_ObjectHideFlags: 0

@@ -11,12 +11,13 @@ public class CoinRotation : MonoBehaviour
     public static int currentScore = 0;
     static TMP_Text coinText;
 
+    public AudioClip pickupNoise;
+
     private void Start()
     {
         totalCoins++;
         coinText = GameObject.FindGameObjectWithTag("ScoreUI").GetComponent<TMP_Text>();
         coinText.text = currentScore.ToString() + " - " + totalCoins.ToString();
-        Debug.Log(totalCoins.ToString());
         coinList.Add(this);            
     }
 
@@ -29,11 +30,11 @@ public class CoinRotation : MonoBehaviour
     {        
         if (other.gameObject.tag == "Player")
         {
+            AudioManager.Instance.Play(pickupNoise);
             other.gameObject.GetComponent<CharacterMechanics>().coinAmount++;
             currentScore++;
             Destroy(this.gameObject);
             coinText.text = currentScore.ToString() + " - " + totalCoins.ToString();
-            Debug.Log(currentScore);
         }        
     }
 }
