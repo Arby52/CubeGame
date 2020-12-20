@@ -25,13 +25,7 @@ public class VictoryScreenScript : MonoBehaviour
     }
 
     public void RestartGame()
-    { 
-        CoinRotation.coinList.Clear();
-        CoinRotation.totalCoins = 0;
-        CoinRotation.currentScore = 0;
-        CharacterMechanics.seconds = 0;
-        CharacterMechanics.minutes = 0;
-        SceneManager.LoadScene("MainMenu");
-  
+    {         
+        SceneManager.LoadScene("MainMenu");  
     }
 }

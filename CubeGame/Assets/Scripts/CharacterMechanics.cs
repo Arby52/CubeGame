@@ -59,7 +59,6 @@ public class CharacterMechanics : MonoBehaviour
     public bool isPaused = false;
 
     public static float seconds = 0;
-    public static int minutes = 0;
 
     public TMP_Text coinText;
     public TMP_Text timerText;

@@ -10,6 +10,10 @@ public class MainMenuScript : MonoBehaviour
 
     private void Start()
     {
+        CoinRotation.coinList.Clear();
+        CoinRotation.totalCoins = 0;
+        CoinRotation.currentScore = 0;
+        CharacterMechanics.seconds = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
@@ -21,6 +25,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void StartGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("SampleScene");
     }
 
