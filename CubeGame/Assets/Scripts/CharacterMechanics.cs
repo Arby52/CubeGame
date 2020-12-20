@@ -88,18 +88,10 @@ public class CharacterMechanics : MonoBehaviour
     private void Update()
     {
         seconds += Time.deltaTime;
-        if(seconds >= 59.9f)
-        {
-            minutes++;
-            seconds = 0;
-        }
-        if(minutes >= 60)
-        {
-            minutes = 0;
-            seconds = 0;
-        }
 
-        timerText.text = minutes.ToString() + "-" + Mathf.RoundToInt(seconds).ToString();
+        System.TimeSpan timeInnit = System.TimeSpan.FromSeconds(seconds);
+
+        timerText.text = timeInnit.ToString(@"mm\-ss");
 
 
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Escape))

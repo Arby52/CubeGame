@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -184,5 +185,9 @@ public class SettingsMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
