@@ -60098,7 +60098,7 @@ PrefabInstance:
     - target: {fileID: 7718395744953492083, guid: aad44e886d49f4a46b5566b9fb5a6b75,
         type: 3}
       propertyPath: doorCloseSpeed
-      value: 0.04
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 7718395744953492084, guid: aad44e886d49f4a46b5566b9fb5a6b75,
         type: 3}
